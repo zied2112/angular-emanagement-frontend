@@ -1,0 +1,24 @@
+<div class="col-md-8 offset-md-2">
+
+    <h3 style="text-align: center;">Update Employee</h3>
+    <form (ngSubmit)="onsubmit(f)" #f=ngForm>
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input class="form-control" type="text" name="firstName" id="firstName" [(ngModel)]="employee.firstName" required #firstName="ngModel">
+            <span style="color: red;" *ngIf="!firstName.valid && firstName.touched">Enter your first Name!</span><br>
+        </div>
+        <div class="form-group">
+            <label for="">Last Name</label>
+            <input class="form-control" type="text" name="lastName" id="lastName" [(ngModel)]="employee.lastName" required #lastName="ngModel">
+            <span style="color: red;" *ngIf="!lastName.valid && lastName.touched">Enter your Last Name!</span><br>
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input class="form-control" type="text" name="email" id="email" [(ngModel)]="employee.email" [email]="true" required #email="ngModel">
+            <span style="color: red;" *ngIf="!email.valid && email.touched">Enter your Email!</span><br>
+        </div>
+    
+        <button [disabled]=!f.valid class="btn btn-outline-success " type="submit">UPDATE</button>
+    
+    </form>
+</div>
